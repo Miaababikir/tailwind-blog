@@ -1,1 +1,1 @@
-# Laravel Inertia dashboard starter
+# Blog with tailwind and inertia and laravel
