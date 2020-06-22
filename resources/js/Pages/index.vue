@@ -28,12 +28,12 @@
 </template>
 
 <script>
-    import Layout from "../../Shared/Layout";
-    import PostFilter from "../../components/PostFilter";
-    import Post from "../../components/Post";
-    import Pagination from "../../components/UI/Pagination";
-    import Categories from "../../components/Categories";
-    import RecentPost from "../../components/RecentPost"
+    import Layout from "../Shared/Layout";
+    import PostFilter from "../components/PostFilter";
+    import Post from "../components/Post";
+    import Pagination from "../components/UI/Pagination";
+    import Categories from "../components/Categories";
+    import RecentPost from "../components/RecentPost"
 
     export default {
         components: {Layout, PostFilter, Post, Pagination, Categories, RecentPost},

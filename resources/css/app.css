@@ -7,3 +7,6 @@
 @import "post_base.css";
 
 @tailwind utilities;
+
+@import "nprogress.css";
+

@@ -8,6 +8,6 @@ class BlogController extends Controller
 {
     public function index()
     {
-        return inertia()->render('Website/index');
+        return inertia()->render('index');
     }
 }
