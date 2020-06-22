@@ -1,0 +1,125 @@
+.post a {
+    @apply .font-semibold;
+    @apply .no-underline;
+    @apply .text-teal-400;
+}
+
+.post a:hover {
+     @apply .text-teal-500;
+ }
+
+
+.post blockquote {
+    @apply .border-teal-400;
+    @apply .border-l-4;
+    @apply .font-normal;
+    @apply .italic;
+    @apply .my-8;
+    @apply .pl-6;
+    @apply .text-gray-800;
+    @apply .text-lg;
+}
+
+.post code {
+    @apply .bg-gray-300;
+    @apply .px-2;
+    @apply .py-px;
+    @apply .rounded;
+    @apply .text-sm;
+}
+
+.post h1, h2, h3, h4, h5, h6 {
+    @apply .leading-tight;
+    @apply .mb-4;
+    @apply .mt-8;
+    @apply .text-gray-700;
+}
+
+.post h1, h2, h3, h4, h5, h6:first-child {
+     @apply .mt-0;
+ }
+
+.post h1 {
+    @apply .font-extrabold;
+    @apply .text-5xl;
+}
+
+.post h2 {
+    @apply .font-bold;
+    @apply .text-4xl;
+}
+
+.post h3 {
+    @apply .font-bold;
+    @apply .text-3xl;
+}
+
+.post h4 {
+    @apply .font-normal;
+    @apply .text-2xl;
+}
+
+.post h5 {
+    @apply .font-normal;
+    @apply .text-xl;
+}
+
+.post h6 {
+    @apply .font-light;
+    @apply .text-lg;
+}
+
+.post hr {
+    @apply .border-b;
+    @apply .border-teal-200;
+    @apply .my-12;
+    @apply .rounded-full;
+}
+
+.post li ul,ol {
+    @apply .my-0;
+}
+
+.post ol,
+ul {
+    @apply .my-4;
+    @apply .mx-8;
+}
+
+.post ol {
+    @apply .list-decimal;
+}
+
+.post ul {
+    @apply .list-disc;
+}
+
+.post p {
+    @apply .my-3;
+}
+
+.post p @screen md {
+    @apply .my-6;
+}
+
+.post pre {
+    @apply .bg-gray-800;
+    @apply .leading-loose;
+    @apply .my-6;
+    @apply .overflow-x-auto;
+    @apply .p-4;
+    @apply .rounded;
+    @apply .shadow;
+    @apply .text-base;
+}
+
+.post pre code {
+    @apply .bg-transparent;
+    @apply .block;
+    @apply .p-0;
+}
+
+::selection {
+    @apply .bg-teal-400;
+    @apply .text-white;
+}

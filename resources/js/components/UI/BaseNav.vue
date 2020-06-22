@@ -15,8 +15,11 @@
             </div>
             <div class="flex flex-col md:flex-row md:-mx-4" :class="isOpen ? 'block' : ['hidden' , 'md:block']">
                 <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" href="#">Blog</a>
-                <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" :href="route('register')">Register</a>
-                <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" href="#">Login</a>
+                <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" href="#">About</a>
+                <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" :href="route('register')" v-if="!$page.auth.user">Register</a>
+                <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" :href="route('login')" v-if="!$page.auth.user">Login</a>
+                <button class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" @click="logout" v-if="$page.auth.user">Logout</button>
+
             </div>
         </div>
     </nav>
@@ -29,6 +32,9 @@
             return {
                 isOpen: false
             }
+        },
+        created() {
+            console.log(this.$page.auth)
         },
         methods: {
             logout() {

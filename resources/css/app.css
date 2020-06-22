@@ -4,4 +4,6 @@
 
 @tailwind components;
 
+@import "post_base.css";
+
 @tailwind utilities;
