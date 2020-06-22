@@ -3,9 +3,12 @@ module.exports = {
     theme: {
         fontFamily: {
             'base': 'Inter',
-            // 'base-ar': 'Tajawal' // I love this font for arabic
         },
-        extend: {},
+        extend: {
+            spacing: {
+                '96': '24rem',
+            },
+        },
     },
     variants: {},
     plugins: [
