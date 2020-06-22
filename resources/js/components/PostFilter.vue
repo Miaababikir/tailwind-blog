@@ -1,6 +1,6 @@
 <template>
     <div>
-        <select class="block bg-gray-300 text-gray-700 py-2 px-2 rounded-lg focus:outline-none md:py-3">
+        <select class="form-select rounded-lg focus:outline-none focus:shadow-none shadow">
             <option>Latest</option>
             <option>Last Week</option>
         </select>

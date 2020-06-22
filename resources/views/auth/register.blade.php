@@ -11,7 +11,7 @@
                     @csrf
                     <div class="mt-4 w-full">
                         <input type="text" name="name" placeholder="Full name"
-                               class="w-full mt-2 py-3 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white"/>
+                               class="w-full mt-2 py-3 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white" required/>
                         @error('name')
                         <p class="text-red-500 text-xs italic mt-4">
                             {{ $message }}
@@ -20,7 +20,7 @@
                     </div>
                     <div class="mt-4 w-full">
                         <input type="email" name="email" placeholder="Email address"
-                               class="w-full mt-2 py-3 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white"/>
+                               class="w-full mt-2 py-3 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white" required/>
                         @error('email')
                         <p class="text-red-500 text-xs italic mt-4">
                             {{ $message }}
@@ -29,7 +29,7 @@
                     </div>
                     <div class="mt-4 w-full">
                         <input type="password" name="password" placeholder="Password"
-                               class="w-full mt-2 py-3 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white"/>
+                               class="w-full mt-2 py-3 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white" required/>
                         @error('password')
                         <p class="text-red-500 text-xs italic mt-4">
                             {{ $message }}
@@ -38,7 +38,7 @@
                     </div>
                     <div class="mt-4 w-full">
                         <input type="password" name="password_confirmation" placeholder="Password confirmation"
-                               class="w-full mt-2 py-3 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white"/>
+                               class="w-full mt-2 py-3 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white" required/>
                     </div>
                     <div class="flex justify-between items-center mt-6">
                         <a href="#" class="text-gray-600 text-sm hover:text-gray-500">Forget password?</a>

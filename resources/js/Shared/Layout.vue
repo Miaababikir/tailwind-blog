@@ -2,7 +2,7 @@
     <div>
         <base-nav></base-nav>
 
-        <div class="px-6 py-8">
+        <div class="px-6 py-8 min-h-screen">
             <slot></slot>
         </div>
 

@@ -11,7 +11,7 @@
                     @csrf
                     <div class="mt-4 w-full">
                         <input type="email" name="email" placeholder="Email address"
-                               class="w-full mt-2 py-3 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white"/>
+                               class="w-full mt-2 py-3 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white" required />
                         @error('email')
                         <p class="text-red-500 text-xs mt-4">
                             {{ $message }}
@@ -20,7 +20,7 @@
                     </div>
                     <div class="mt-4 w-full">
                         <input type="password" name="password" placeholder="Password"
-                               class="w-full mt-2 py-3 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white"/>
+                               class="w-full mt-2 py-3 px-4 bg-gray-100 text-gray-700 border border-gray-300 rounded  block appearance-none placeholder-gray-500 focus:outline-none focus:bg-white" required />
                         @error('password')
                         <p class="text-red-500 text-xs italic mt-4">
                             {{ $message }}

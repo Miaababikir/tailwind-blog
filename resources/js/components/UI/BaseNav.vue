@@ -3,7 +3,7 @@
         <div class="flex flex-col container mx-auto md:flex-row md:items-center md:justify-between">
             <div class="flex justify-between items-center">
                 <div>
-                    <a class="text-gray-800 text-xl font-bold md:text-2xl" href="#">Meraki <span class="text-blue-500">UI</span></a>
+                    <a class="text-gray-800 text-xl font-bold md:text-2xl" href="#">Brand <span class="text-blue-500">UI</span></a>
                 </div>
                 <div>
                     <button type="button" @click="isOpen = !isOpen" class="block text-gray-800 hover:text-gray-600 focus:text-gray-600 focus:outline-none md:hidden">
@@ -15,7 +15,7 @@
             </div>
             <div class="flex flex-col md:flex-row md:-mx-4" :class="isOpen ? 'block' : ['hidden' , 'md:block']">
                 <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" href="#">Blog</a>
-                <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" href="#">Register</a>
+                <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" :href="route('register')">Register</a>
                 <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" href="#">Login</a>
             </div>
         </div>

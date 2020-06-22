@@ -4,7 +4,7 @@
             <a class="px-2 py-1 bg-gray-600 text-sm text-green-100 rounded hover:bg-gray-500" href="#">Laravel</a>
         </div>
         <div class="mt-4">
-            <a class="text-lg text-gray-700 font-medium hover:underline" href="#">Build Your New Idea with Laravel Freamwork.</a>
+            <a class="text-lg text-gray-700 font-medium hover:underline" href="#">Build Your New Idea with Laravel Framework.</a>
         </div>
         <div class="flex justify-between items-center mt-4">
             <div class="flex items-center">
