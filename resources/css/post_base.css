@@ -1,16 +1,16 @@
-a {
+.ck .ck-content a {
     @apply .font-semibold;
     @apply .no-underline;
-    @apply .text-teal-400;
+    @apply .text-indigo-500;
 }
 
-a:hover {
-     @apply .text-teal-500;
+.ck .ck-content a:hover {
+     @apply .text-indigo-600;
  }
 
 
-blockquote {
-    @apply .border-teal-400;
+.ck .ck-content blockquote {
+    @apply .border-indigo-500;
     @apply .border-l-4;
     @apply .font-normal;
     @apply .italic;
@@ -20,7 +20,7 @@ blockquote {
     @apply .text-lg;
 }
 
-code {
+.ck .ck-content code {
     @apply .bg-gray-300;
     @apply .px-2;
     @apply .py-px;
@@ -28,81 +28,81 @@ code {
     @apply .text-sm;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.ck .ck-content h1, h2, h3, h4, h5, h6 {
     @apply .leading-tight;
     @apply .mb-4;
     @apply .mt-8;
     @apply .text-gray-700;
 }
 
-h1, h2, h3, h4, h5, h6:first-child {
+.ck .ck-content h1, h2, h3, h4, h5, h6:first-child {
      @apply .mt-0;
  }
 
-h1 {
+.ck .ck-content h1 {
     @apply .font-extrabold;
     @apply .text-5xl;
 }
 
-h2 {
+.ck .ck-content h2 {
     @apply .font-bold;
     @apply .text-4xl;
 }
 
-h3 {
+.ck .ck-content h3 {
     @apply .font-bold;
     @apply .text-3xl;
 }
 
-h4 {
+.ck .ck-content h4 {
     @apply .font-normal;
     @apply .text-2xl;
 }
 
-h5 {
+.ck .ck-content h5 {
     @apply .font-normal;
     @apply .text-xl;
 }
 
-h6 {
+.ck .ck-content h6 {
     @apply .font-light;
     @apply .text-lg;
 }
 
-hr {
+.ck .ck-content hr {
     @apply .border-b;
     @apply .border-teal-200;
     @apply .my-12;
     @apply .rounded-full;
 }
 
-li ul,ol {
+.ck .ck-content li ul,ol {
     @apply .my-0;
 }
 
-ol,
+.ck .ck-content ol,
 ul {
     @apply .my-4;
     @apply .mx-8;
 }
 
-ol {
+.ck .ck-content ol {
     @apply .list-decimal;
 }
 
-ul {
+.ck .ck-content ul {
     @apply .list-disc;
 }
 
-p {
+.ck .ck-content p {
     @apply .my-3;
 }
 
-p @screen md {
+.ck .ck-content p @screen md {
     @apply .my-6;
 }
 
-pre {
+.ck .ck-content pre {
     @apply .bg-gray-800;
     @apply .leading-loose;
     @apply .my-6;
@@ -113,7 +113,7 @@ pre {
     @apply .text-base;
 }
 
-pre code {
+.ck .ck-content pre code {
     @apply .bg-transparent;
     @apply .block;
     @apply .p-0;

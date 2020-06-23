@@ -31,7 +31,7 @@
                     </div>
                     <div class="col-span-3">
                         <span class="text-gray-700">Content</span>
-                        <ckeditor :editor="editor" rows="8" class="post"></ckeditor>
+                        <text-editor></text-editor>
                     </div>
                 </div>
 
@@ -45,19 +45,12 @@
 
 <script>
     import Layout from "../../../Shared/Layout";
-    import CKEditor from '@ckeditor/ckeditor5-vue';
-    import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+    import TextEditor from "../../../components/UI/TextEditor";
+
 
     export default {
         layout: Layout,
-        components: {
-            ckeditor: CKEditor.component
-        },
+        components: { TextEditor },
         props: ['categories'],
-        data() {
-            return {
-                editor: ClassicEditor,
-            }
-        }
     }
 </script>
