@@ -120,6 +120,6 @@ ul {
 }
 
 ::selection {
-    @apply .bg-teal-400;
+    @apply .bg-indigo-500;
     @apply .text-white;
 }

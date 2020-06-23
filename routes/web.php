@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/', 'BlogController@index');
 
 Route::middleware('auth')->prefix('manage')->name('manage.')->group(function () {
-    Route::get('/', 'Manage\PostController@index')->name('posts.index');
+    Route::get('/posts', 'Manage\PostController@index')->name('posts.index');
+    Route::get('/posts/create', 'Manage\PostController@create')->name('posts.create');
 });
 
