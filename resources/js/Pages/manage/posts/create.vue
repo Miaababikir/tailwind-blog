@@ -12,10 +12,10 @@
             <form>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-4 items-center">
                     <div>
-                        <base-input label="title" required />
+                        <base-input label="title" required/>
                     </div>
                     <div>
-                        <base-input label="Publish at" type="date" required />
+                        <base-input label="Publish at" type="date" required/>
                     </div>
                     <div>
                         <span class="text-gray-700">Category</span>
@@ -30,7 +30,8 @@
                         </base-select>
                     </div>
                     <div class="col-span-3">
-                        <base-textarea label="Content" rows="8" required />
+                        <span class="text-gray-700">Content</span>
+                        <ckeditor :editor="editor" rows="8" class="post"></ckeditor>
                     </div>
                 </div>
 
@@ -44,9 +45,19 @@
 
 <script>
     import Layout from "../../../Shared/Layout";
+    import CKEditor from '@ckeditor/ckeditor5-vue';
+    import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
     export default {
         layout: Layout,
-        props: ['categories']
+        components: {
+            ckeditor: CKEditor.component
+        },
+        props: ['categories'],
+        data() {
+            return {
+                editor: ClassicEditor,
+            }
+        }
     }
 </script>

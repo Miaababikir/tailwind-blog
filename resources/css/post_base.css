@@ -1,15 +1,15 @@
-.post a {
+a {
     @apply .font-semibold;
     @apply .no-underline;
     @apply .text-teal-400;
 }
 
-.post a:hover {
+a:hover {
      @apply .text-teal-500;
  }
 
 
-.post blockquote {
+blockquote {
     @apply .border-teal-400;
     @apply .border-l-4;
     @apply .font-normal;
@@ -20,7 +20,7 @@
     @apply .text-lg;
 }
 
-.post code {
+code {
     @apply .bg-gray-300;
     @apply .px-2;
     @apply .py-px;
@@ -28,81 +28,81 @@
     @apply .text-sm;
 }
 
-.post h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
     @apply .leading-tight;
     @apply .mb-4;
     @apply .mt-8;
     @apply .text-gray-700;
 }
 
-.post h1, h2, h3, h4, h5, h6:first-child {
+h1, h2, h3, h4, h5, h6:first-child {
      @apply .mt-0;
  }
 
-.post h1 {
+h1 {
     @apply .font-extrabold;
     @apply .text-5xl;
 }
 
-.post h2 {
+h2 {
     @apply .font-bold;
     @apply .text-4xl;
 }
 
-.post h3 {
+h3 {
     @apply .font-bold;
     @apply .text-3xl;
 }
 
-.post h4 {
+h4 {
     @apply .font-normal;
     @apply .text-2xl;
 }
 
-.post h5 {
+h5 {
     @apply .font-normal;
     @apply .text-xl;
 }
 
-.post h6 {
+h6 {
     @apply .font-light;
     @apply .text-lg;
 }
 
-.post hr {
+hr {
     @apply .border-b;
     @apply .border-teal-200;
     @apply .my-12;
     @apply .rounded-full;
 }
 
-.post li ul,ol {
+li ul,ol {
     @apply .my-0;
 }
 
-.post ol,
+ol,
 ul {
     @apply .my-4;
     @apply .mx-8;
 }
 
-.post ol {
+ol {
     @apply .list-decimal;
 }
 
-.post ul {
+ul {
     @apply .list-disc;
 }
 
-.post p {
+p {
     @apply .my-3;
 }
 
-.post p @screen md {
+p @screen md {
     @apply .my-6;
 }
 
-.post pre {
+pre {
     @apply .bg-gray-800;
     @apply .leading-loose;
     @apply .my-6;
@@ -113,7 +113,7 @@ ul {
     @apply .text-base;
 }
 
-.post pre code {
+pre code {
     @apply .bg-transparent;
     @apply .block;
     @apply .p-0;
