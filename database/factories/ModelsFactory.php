@@ -3,6 +3,8 @@
 /** @var Factory $factory */
 
 use App\Category;
+use App\Post;
+use App\Tag;
 use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
@@ -32,5 +34,19 @@ $factory->define(User::class, function (Faker $faker) {
 $factory->define(Category::class, function (Faker $faker) {
     return [
         'name' => $faker->word,
+    ];
+});
+
+$factory->define(Tag::class, function (Faker $faker) {
+    return [
+        'name' => $faker->word,
+    ];
+});
+
+$factory->define(Post::class, function (Faker $faker) {
+    return [
+        'title' => $faker->title,
+        'body' => $faker->paragraphs,
+        'user_id' => fn() => factory(User::class),
     ];
 });
