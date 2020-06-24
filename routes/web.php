@@ -23,5 +23,6 @@ Route::middleware('auth')->prefix('manage')->name('manage.')->group(function () 
     Route::get('/posts', 'Manage\PostController@index')->name('posts.index');
     Route::get('/posts/create', 'Manage\PostController@create')->name('posts.create');
     Route::post('/posts', 'Manage\PostController@store')->name('posts.store');
+    Route::put('/posts/{post}', 'Manage\PostController@update')->name('posts.update');
 });
 

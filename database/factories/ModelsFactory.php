@@ -46,7 +46,8 @@ $factory->define(Tag::class, function (Faker $faker) {
 $factory->define(Post::class, function (Faker $faker) {
     return [
         'title' => $faker->title,
-        'body' => $faker->paragraphs,
+        'body' => $faker->paragraph,
         'user_id' => fn() => factory(User::class),
+        'category_id' => fn() => factory(Category::class),
     ];
 });

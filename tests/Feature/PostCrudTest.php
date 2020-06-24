@@ -59,5 +59,59 @@ class PostCrudTest extends TestCase
         ]);
     }
 
+    /**
+     * @test
+     */
+    public function auth_user_can_update_post_with_tags()
+    {
+        $this->login();
+
+        $tags = factory(Tag::class, 3)->create();
+        $newTag = factory(Tag::class, 1)->create();
+        $category = factory(Category::class)->create();
+
+        $post = factory(Post::class)->create();
+        $post->tags()->attach($tags->pluck('id'));
+
+        $this->put("/manage/posts/$post->id", [
+            'title' => 'Post title',
+            'body' => 'Post body',
+            'category_id' => $category->id,
+            'tags' => $newTag->pluck('id')
+        ]);
+
+        $this->assertDatabaseHas('posts', [
+            'category_id' => $category->id,
+        ]);
+
+        $this->assertDatabaseMissing('post_tag', ['post_id' => 1, 'tag_id' => 1]);
+        $this->assertDatabaseMissing('post_tag', ['post_id' => 1, 'tag_id' => 2]);
+        $this->assertDatabaseMissing('post_tag', ['post_id' => 1, 'tag_id' => 3]);
+
+        $this->assertDatabaseHas('post_tag', ['post_id' => 1, 'tag_id' => $newTag->first()->id]);
+    }
+
+    /**
+     * @test
+     */
+    public function auth_user_can_update_post_without_tags()
+    {
+        $this->login();
+
+        $category = factory(Category::class)->create();
+
+        $post = factory(Post::class)->create();
+
+        $this->put("/manage/posts/$post->id", [
+            'title' => 'Post title',
+            'body' => 'Post body',
+            'category_id' => $category->id,
+        ]);
+
+        $this->assertDatabaseHas('posts', [
+            'category_id' => $category->id,
+        ]);
+    }
+
 }
 

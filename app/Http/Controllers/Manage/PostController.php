@@ -41,4 +41,25 @@ class PostController extends Controller
 
         return redirect()->route('manage.posts.index');
     }
+
+    public function update(Request $request, Post $post)
+    {
+        $data = $request->validate([
+            'title' => 'required|string',
+            'body' => 'required|string',
+            'category_id' => 'required|exists:categories,id',
+            'tags' => 'sometimes',
+            'tags.*.id' => 'required_with:tags|exists:tags,id',
+        ]);
+
+        $post->update($request->except('tags'));
+
+        if ($request->filled('tags')) {
+            $post->tags()->sync($data['tags']);
+        }
+
+        session()->flash('success', 'Created successfully');
+
+        return redirect()->route('manage.posts.index');
+    }
 }
