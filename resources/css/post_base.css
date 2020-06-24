@@ -1,15 +1,15 @@
-.ck .ck-content a {
+.ck-content a {
     @apply .font-semibold;
     @apply .no-underline;
     @apply .text-indigo-500;
 }
 
-.ck .ck-content a:hover {
+.ck-content a:hover {
      @apply .text-indigo-600;
  }
 
 
-.ck .ck-content blockquote {
+.ck-content blockquote {
     @apply .border-indigo-500;
     @apply .border-l-4;
     @apply .font-normal;
@@ -20,7 +20,7 @@
     @apply .text-lg;
 }
 
-.ck .ck-content code {
+.ck-content code {
     @apply .bg-gray-300;
     @apply .px-2;
     @apply .py-px;
@@ -28,81 +28,81 @@
     @apply .text-sm;
 }
 
-.ck .ck-content h1, h2, h3, h4, h5, h6 {
+.ck-content h1, h2, h3, h4, h5, h6 {
     @apply .leading-tight;
     @apply .mb-4;
     @apply .mt-8;
     @apply .text-gray-700;
 }
 
-.ck .ck-content h1, h2, h3, h4, h5, h6:first-child {
+.ck-content h1, h2, h3, h4, h5, h6:first-child {
      @apply .mt-0;
  }
 
-.ck .ck-content h1 {
+.ck-content h1 {
     @apply .font-extrabold;
     @apply .text-5xl;
 }
 
-.ck .ck-content h2 {
+.ck-content h2 {
     @apply .font-bold;
     @apply .text-4xl;
 }
 
-.ck .ck-content h3 {
+.ck-content h3 {
     @apply .font-bold;
     @apply .text-3xl;
 }
 
-.ck .ck-content h4 {
+.ck-content h4 {
     @apply .font-normal;
     @apply .text-2xl;
 }
 
-.ck .ck-content h5 {
+.ck-content h5 {
     @apply .font-normal;
     @apply .text-xl;
 }
 
-.ck .ck-content h6 {
+.ck-content h6 {
     @apply .font-light;
     @apply .text-lg;
 }
 
-.ck .ck-content hr {
+.ck-content hr {
     @apply .border-b;
     @apply .border-teal-200;
     @apply .my-12;
     @apply .rounded-full;
 }
 
-.ck .ck-content li ul,ol {
+.ck-content li ul,ol {
     @apply .my-0;
 }
 
-.ck .ck-content ol,
+.ck-content ol,
 ul {
     @apply .my-4;
     @apply .mx-8;
 }
 
-.ck .ck-content ol {
+.ck-content ol {
     @apply .list-decimal;
 }
 
-.ck .ck-content ul {
+.ck-content ul {
     @apply .list-disc;
 }
 
-.ck .ck-content p {
+.ck-content p {
     @apply .my-3;
 }
 
-.ck .ck-content p @screen md {
+.ck-content p @screen md {
     @apply .my-6;
 }
 
-.ck .ck-content pre {
+.ck-content pre {
     @apply .bg-gray-800;
     @apply .leading-loose;
     @apply .my-6;
@@ -113,13 +113,9 @@ ul {
     @apply .text-base;
 }
 
-.ck .ck-content pre code {
+.ck-content pre code {
     @apply .bg-transparent;
     @apply .block;
     @apply .p-0;
 }
 
-::selection {
-    @apply .bg-indigo-500;
-    @apply .text-white;
-}
