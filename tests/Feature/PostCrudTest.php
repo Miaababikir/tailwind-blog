@@ -13,6 +13,23 @@ class PostCrudTest extends TestCase
 {
     use RefreshDatabase;
 
+
+    /**
+    * @test
+    */
+     public function auth_user_can_mange_his_own_posts()
+    {
+        $user = $this->login();
+        factory(Post::class, 5)->create(['user_id' => $user->id]);
+        factory(Post::class, 3)->create();
+
+        $this->get('/manage/posts')
+            ->assertSuccessful()
+            ->assertHasProp('posts')
+            ->assertPropCount('posts', 5);
+
+    }
+
     /**
     * @test
     */
