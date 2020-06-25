@@ -1,78 +1,15 @@
 <template>
     <div class="container mx-auto md:w-2/3">
         <div class="bg-white border overflow-hidden rounded">
-            <img class="w-full h-96 object-cover"
-                 src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                 alt="Article">
+            <img class="w-full h-96 object-cover" :src="post.image" alt="Article" v-if="post.image">
 
             <div class="p-6">
                 <div>
-                    <h2 class="block text-gray-800 font-semibold text-3xl mt-2 leading-none">I
-                        Built A Successful Blog In One Year</h2>
-                    <p class="text-gray-700 text-xl md:mt-0">Jone Doe • May 25, 2020</p>
+                    <h2 class="block text-gray-700 font-semibold text-3xl mt-2 leading-none">{{ post.title }}</h2>
+                    <p class="text-gray-700 md:mt-0">{{ post.publisher.name }} • {{ post.created_at }}</p>
                 </div>
                 <div class="mt-5">
-                    <div class="ck-content">
-                        <a href="#">asdsadasd</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Molestie
-                            parturient et sem ipsum volutpat vel. Natoque sem et aliquam mauris egestas quam volutpat
-                            viverra.
-                            In pretium nec senectus erat. Et malesuada lobortis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Molestie
-                            parturient et sem ipsum volutpat vel. Natoque sem et aliquam mauris egestas quam volutpat
-                            viverra.
-                            In pretium nec senectus erat. Et malesuada lobortis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Molestie
-                            parturient et sem ipsum volutpat vel. Natoque sem et aliquam mauris egestas quam volutpat
-                            viverra.
-                            In pretium nec senectus erat. Et malesuada lobortis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Molestie
-                            parturient et sem ipsum volutpat vel. Natoque sem et aliquam mauris egestas quam volutpat
-                            viverra.
-                            In pretium nec senectus erat. Et malesuada lobortis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Molestie
-                            parturient et sem ipsum volutpat vel. Natoque sem et aliquam mauris egestas quam volutpat
-                            viverra.
-                            In pretium nec senectus erat. Et malesuada lobortis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Molestie
-                            parturient et sem ipsum volutpat vel. Natoque sem et aliquam mauris egestas quam volutpat
-                            viverra.
-                            In pretium nec senectus erat. Et malesuada lobortis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Molestie
-                            parturient et sem ipsum volutpat vel. Natoque sem et aliquam mauris egestas quam volutpat
-                            viverra.
-                            In pretium nec senectus erat. Et malesuada lobortis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Molestie
-                            parturient et sem ipsum volutpat vel. Natoque sem et aliquam mauris egestas quam volutpat
-                            viverra.
-                            In pretium nec senectus erat. Et malesuada lobortis.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Molestie
-                            parturient et sem ipsum volutpat vel. Natoque sem et aliquam mauris egestas quam volutpat
-                            viverra.
-                            In pretium nec senectus erat. Et malesuada lobortis.</p>
-
-                    </div>
-                </div>
-
-                <div class="mt-5">
-                    <div class="flex items-center">
-                        <div class="flex items-center">
-                            <img class="h-10 h-10 object-cover rounded-full"
-                                 src="https://images.unsplash.com/photo-1586287011575-a23134f797f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=48&q=60"
-                                 alt="Avatar">
-                            <a href="#" class="mx-2 text-gray-700 font-semibold">Jone Doe</a>
-                        </div>
-                        <span class="mx-1 text-gray-600 text-xs">21 SEP 2015</span>
-                    </div>
+                    <div class="ck-content" v-html="post.body"></div>
                 </div>
             </div>
         </div>
@@ -144,5 +81,6 @@
 
     export default {
         layout: Layout,
+        props: ['post']
     }
 </script>

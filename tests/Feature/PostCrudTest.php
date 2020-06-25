@@ -13,7 +13,6 @@ class PostCrudTest extends TestCase
 {
     use RefreshDatabase;
 
-
     /**
     * @test
     */

@@ -3,8 +3,8 @@
         <div class="flex flex-col container mx-auto md:flex-row md:items-center md:justify-between">
             <div class="flex justify-between items-center">
                 <div>
-                    <a class="text-gray-800 text-xl font-bold md:text-2xl" href="#">Brand <span
-                        class="text-blue-500">UI</span></a>
+                    <inertia-link class="text-gray-800 text-xl font-bold md:text-2xl" href="/">Brand <span
+                        class="text-blue-500">UI</span></inertia-link>
                 </div>
                 <div>
                     <button type="button" @click="isOpen = !isOpen"
@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="flex flex-col md:flex-row md:-mx-4" :class="isOpen ? 'block' : ['hidden' , 'md:block']">
-                <a class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" href="#">Blog</a>
+                <inertia-link class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0" href="/">Blog</inertia-link>
                 <inertia-link class="my-1 text-gray-800 hover:text-blue-500 md:mx-4 md:my-0"
                               :href="route('manage.posts.index')" v-if="$page.auth.user">Manage
                 </inertia-link>

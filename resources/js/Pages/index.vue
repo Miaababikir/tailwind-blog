@@ -6,8 +6,8 @@
                     <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Post</h1>
                     <post-filter></post-filter>
                 </div>
-                <div class="mt-6">
-                    <post></post>
+                <div class="mt-6" v-for="post in posts">
+                    <post :post="post"></post>
                 </div>
                 <div class="mt-8">
                     <pagination></pagination>
@@ -38,5 +38,6 @@
     export default {
         components: {Layout, PostFilter, Post, Pagination, Categories, RecentPost},
         layout: Layout,
+        props: ['posts']
     }
 </script>
