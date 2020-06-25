@@ -40,7 +40,7 @@
   font-size: 0.875rem;
 }
 
-.ck-content h1, h2, h3, h4, h5, h6 {
+.ck-content h1, .ck-content h2, .ck-content h3, .ck-content h4, .ck-content h5, .ck-content h6 {
   line-height: 1.25;
   margin-bottom: 1rem;
   margin-top: 2rem;
@@ -49,7 +49,7 @@
   color: rgba(74, 85, 104, var(--text-opacity));
 }
 
-.ck-content h1, h2, h3, h4, h5, h6:first-child {
+.ck-content h1, .ck-content h2, .ck-content h3, .ck-content h4, .ck-content h5, .ck-content h6:first-child {
   margin-top: 0;
 }
 
@@ -93,13 +93,13 @@
   border-radius: 9999px;
 }
 
-.ck-content li ul,ol {
+.ck-content li ul, .ck-content ol {
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .ck-content ol,
-ul {
+.ck-content ul {
   margin-top: 1rem;
   margin-bottom: 1rem;
   margin-left: 2rem;

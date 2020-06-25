@@ -28,14 +28,14 @@
     @apply .text-sm;
 }
 
-.ck-content h1, h2, h3, h4, h5, h6 {
+.ck-content h1, .ck-content h2, .ck-content h3, .ck-content h4, .ck-content h5, .ck-content h6 {
     @apply .leading-tight;
     @apply .mb-4;
     @apply .mt-8;
     @apply .text-gray-700;
 }
 
-.ck-content h1, h2, h3, h4, h5, h6:first-child {
+.ck-content h1, .ck-content h2, .ck-content h3, .ck-content h4, .ck-content h5, .ck-content h6:first-child {
      @apply .mt-0;
  }
 
@@ -76,12 +76,12 @@
     @apply .rounded-full;
 }
 
-.ck-content li ul,ol {
+.ck-content li ul, .ck-content ol {
     @apply .my-0;
 }
 
 .ck-content ol,
-ul {
+.ck-content ul {
     @apply .my-4;
     @apply .mx-8;
 }
