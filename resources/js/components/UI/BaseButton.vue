@@ -3,6 +3,7 @@
         class="font-medium rounded focus:outline-none focus:shadow-outline"
         :class="[buttonType, buttonSize, buttonDisabled]"
         :disabled="disabled"
+        :type="type"
         v-on="$listeners"
     >
         <slot></slot>
@@ -15,6 +16,7 @@
             danger: Boolean,
             primary: Boolean,
             small: Boolean,
+            type: null,
             disabled: Boolean,
         },
         computed: {

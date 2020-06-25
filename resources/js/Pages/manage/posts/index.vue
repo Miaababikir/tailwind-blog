@@ -2,7 +2,7 @@
     <div class="container mx-auto">
         <div class="flex flex-col md:flex-row md:justify-between items-center">
             <h2 class="text-2xl font-semibold">Manage Posts</h2>
-            <inertia-link href="#" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-medium rounded">
+            <inertia-link :href="route('manage.posts.create')" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-medium rounded">
                 Add Post
             </inertia-link>
         </div>
@@ -21,29 +21,29 @@
                                 </th>
                                 <th class="px-6 py-4 border-b border-gray-200 bg-gray-50 text-xs leading-4 font-semibold uppercase tracking-wider"
                                     style="text-align: start">
-                                    Tags
+                                    Category
                                 </th>
                                 <th class="px-6 py-4 border-b border-gray-200 bg-gray-50 text-xs leading-4 font-semibold uppercase tracking-wider"
                                     style="text-align: start">
-                                    Publish at
+                                    Created at
                                 </th>
                                 <th class="px-6 py-4 border-b border-gray-200 bg-gray-50"></th>
                             </tr>
                             </thead>
                             <tbody class="text-gray-700">
-                            <tr>
+                            <tr v-for="post in posts">
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                    Getting up and running with laravel
+                                    {{ post.title }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                    Laravel - Vue js
+                                    {{ post.category.name }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                                    2, Feb 2020
+                                    {{ post.created_at }}
                                 </td>
 
                                 <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 font-medium">
-                                    <inertia-link href="#" class="text-indigo-600 hover:text-indigo-900">
+                                    <inertia-link :href="route('manage.posts.edit', post.id)" class="text-indigo-600 hover:text-indigo-900">
                                         Edit
                                     </inertia-link>
                                 </td>
@@ -61,6 +61,7 @@
     import Layout from "../../../Shared/Layout";
 
     export default {
-        layout: Layout
+        layout: Layout,
+        props: ['posts'],
     }
 </script>

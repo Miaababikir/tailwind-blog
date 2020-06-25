@@ -1,7 +1,7 @@
 <template>
     <div class="container mx-auto">
         <div class="flex flex-col md:flex-row md:justify-between items-center">
-            <h2 class="text-2xl font-semibold">Create Post</h2>
+            <h2 class="text-2xl font-semibold">Edit Post</h2>
             <inertia-link :href="route('manage.posts.index')" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-medium rounded">
                 All Posts
             </inertia-link>
@@ -63,7 +63,7 @@
     export default {
         layout: Layout,
         components: {TextEditor},
-        props: ['categories', 'tags'],
+        props: ['post', 'categories', 'tags'],
         data() {
             return {
                 form: {
@@ -71,13 +71,20 @@
                     category_id: '',
                     tags: [],
                     body: '',
-
                 }
             }
         },
+        created() {
+            this.form = {
+                title: this.post.title,
+                body: this.post.body,
+                category_id: this.post.category_id,
+                tags: this.post.tags.map(tag => tag.id)
+            };
+        },
         methods: {
             submit() {
-                this.$inertia.post(this.$route('manage.posts.store'), this.form);
+                this.$inertia.put(this.$route('manage.posts.update', this.post.id), this.form);
             }
         }
     }
