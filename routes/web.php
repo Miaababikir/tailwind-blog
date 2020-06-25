@@ -19,11 +19,20 @@ Route::get('/', 'BlogController@index');
 
 Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
 
+Route::middleware('auth')->group(function () {
+
+    Route::post('/posts/{post}/comments', 'CommentController@store')->name('posts.comments.store');
+
+});
+
+
 Route::middleware('auth')->prefix('manage')->name('manage.')->group(function () {
+
     Route::get('/posts', 'Manage\PostController@index')->name('posts.index');
     Route::get('/posts/create', 'Manage\PostController@create')->name('posts.create');
     Route::post('/posts', 'Manage\PostController@store')->name('posts.store');
     Route::get('/posts/{post}/edit', 'Manage\PostController@edit')->name('posts.edit');
     Route::put('/posts/{post}', 'Manage\PostController@update')->name('posts.update');
+
 });
 

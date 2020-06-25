@@ -3,6 +3,7 @@
 /** @var Factory $factory */
 
 use App\Category;
+use App\Comment;
 use App\Post;
 use App\Tag;
 use App\User;
@@ -49,5 +50,13 @@ $factory->define(Post::class, function (Faker $faker) {
         'body' => $faker->paragraph,
         'user_id' => fn() => factory(User::class),
         'category_id' => fn() => factory(Category::class),
+    ];
+});
+
+$factory->define(Comment::class, function (Faker $faker) {
+    return [
+        'body' => $faker->paragraph,
+        'user_id' => fn() => factory(User::class),
+        'post_id' => fn() => factory(Post::class),
     ];
 });

@@ -19,12 +19,7 @@
                         <base-select label="name" :options="categories" :reduce="category => category.id"
                                      v-model="form.category_id">
                             <template #search="{attributes, events}">
-                                <input
-                                    class="vs__search"
-                                    v-bind="attributes"
-                                    v-on="events"
-                                    :required="!form.category_id"
-                                />
+                                <input class="vs__search" v-bind="attributes" v-on="events" :required="!form.category_id"/>
                             </template>
                         </base-select>
                         <span class="text-red-500 text-xs mt-4" v-if="$page.errors.category_id">{{ $page.errors.category_id[0] }}</span>
@@ -33,11 +28,7 @@
                         <span class="text-gray-700">Tags</span>
                         <base-select label="name" :options="tags" :reduce="tag => tag.id" v-model="form.tags" multiple>
                             <template #search="{attributes, events}">
-                                <input
-                                    class="vs__search"
-                                    v-bind="attributes"
-                                    v-on="events"
-                                />
+                                <input class="vs__search" v-bind="attributes" v-on="events"/>
                             </template>
                         </base-select>
                         <span class="text-red-500 text-xs mt-4" v-if="$page.errors.tags">{{ $page.errors.tags[0] }}</span>
@@ -71,7 +62,6 @@
                     category_id: '',
                     tags: [],
                     body: '',
-
                 }
             }
         },

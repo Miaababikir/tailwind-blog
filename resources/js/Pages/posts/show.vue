@@ -16,60 +16,35 @@
 
         <base-panel class="mt-5">
             <h2 class="text-2xl font-semibold">Comments</h2>
-            <div>
-                <form>
-                    <base-textarea placeholder="Add comment" rows="4"/>
+            <div v-if="$page.auth.user">
+                <form @submit.prevent="submit">
+                    <base-textarea placeholder="Add comment" rows="4" v-model="form.body" required />
                     <div class="flex justify-end">
                         <base-button class="mt-3 justify-end" primary>Submit</base-button>
                     </div>
                 </form>
             </div>
+            <div v-else>
+                <p class="text-gray-700 text-center py-6">Please
+                    <inertia-link class="text-indigo-500 font-semibold" :href="route('login')">Login</inertia-link>
+                    first to start discussion
+                </p>
+            </div>
             <div class="mt-5 text-gray-700">
-                <div class="flex py-4">
+                <div class="flex py-4" v-for="comment in post.comments">
                     <img class="w-12 h-12 rounded-full object-cover"
                          src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
                          alt="avatar">
                     <div class="ml-4 w-full">
                         <div>
-                            <span class="font-semibold">Jone Doe</span> <span class="mx-2">•</span> <span
-                            class="text-gray-600">4h</span>
+                            <span class="font-semibold">{{ comment.user.name }}</span> <span class="mx-2">•</span> <span
+                            class="text-gray-600">{{ comment.created_at }}</span>
                         </div>
                         <div class="py-2">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae commodi dolore voluptatem.</p>
+                            <p>{{ comment.body }}</p>
                         </div>
                     </div>
                 </div>
-
-                <div class="flex py-4">
-                    <img class="w-12 h-12 rounded-full object-cover"
-                         src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                         alt="avatar">
-                    <div class="ml-4 w-full">
-                        <div>
-                            <span class="font-semibold">Jone Doe</span> <span class="mx-2">•</span> <span
-                            class="text-gray-600">4h</span>
-                        </div>
-                        <div class="py-2">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, debitis dolorum eligendi laboriosam maxime molestias non officiis qui quod sit.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex py-4">
-                    <img class="w-12 h-12 rounded-full object-cover"
-                         src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                         alt="avatar">
-                    <div class="ml-4 w-full">
-                        <div>
-                            <span class="font-semibold">Jone Doe</span> <span class="mx-2">•</span> <span
-                            class="text-gray-600">4h</span>
-                        </div>
-                        <div class="py-2">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, atque commodi consequuntur enim ipsa ipsam maxime minus optio quia quisquam suscipit ullam voluptas voluptates. Amet aspernatur beatae ea et eveniet magni numquam optio provident qui quia ratione, sunt temporibus, ullam?</p>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </base-panel>
 
@@ -81,6 +56,19 @@
 
     export default {
         layout: Layout,
-        props: ['post']
+        props: ['post'],
+        data() {
+            return {
+                form: {
+                    body: ''
+                }
+            }
+        },
+        methods: {
+            submit() {
+                this.$inertia.post(this.$route('posts.comments.store', this.post.id), this.form, {preserveScroll: true})
+                    .then(() => this.form.body = '');
+            }
+        }
     }
 </script>

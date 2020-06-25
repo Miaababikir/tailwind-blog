@@ -10,7 +10,7 @@ class Post extends Model
 {
     protected $guarded = [];
 
-    protected $with = ['category', 'tags', 'publisher'];
+    protected $with = ['category', 'tags', 'publisher', 'comments'];
 
     protected $appends = ['description'];
 
@@ -27,6 +27,11 @@ class Post extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
     public function getCreatedAtAttribute($created_at)
