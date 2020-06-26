@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manage;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Post\StorePostRequest;
 use App\Post;
 use App\Tag;
 use Illuminate\Http\Request;
@@ -26,16 +27,9 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        $data = $request->validate([
-            'title' => 'required|string',
-            'body' => 'required|string',
-            'category_id' => 'required|exists:categories,id',
-            'tags' => 'sometimes',
-            'tags.*' => 'required_with:tags|exists:tags,id',
-            'image' => 'sometimes|image|mimetypes:image/jpeg,image/png,image/jpg'
-        ]);
+        $data = $request->validated();
 
         $post = auth()->user()->createPost($data);
 
@@ -44,9 +38,7 @@ class PostController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            $post
-                ->addMedia($request->image)
-                ->toMediaCollection('images');
+            $post->addMedia($request->image)->toMediaCollection('images');
         }
 
         session()->flash('toast', [
@@ -66,16 +58,9 @@ class PostController extends Controller
         ]);
     }
 
-    public function update(Request $request, Post $post)
+    public function update(StorePostRequest $request, Post $post)
     {
-        $data = $request->validate([
-            'title' => 'required|string',
-            'body' => 'required|string',
-            'category_id' => 'required|exists:categories,id',
-            'tags' => 'sometimes',
-            'tags.*' => 'required_with:tags|exists:tags,id',
-            'image' => 'sometimes|image|mimetypes:image/jpeg,image/png,image/jpg'
-        ]);
+        $data = $request->validated();
 
         $post->update($request->only(['title', 'body', 'category_id']));
 
