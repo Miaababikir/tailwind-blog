@@ -19,6 +19,8 @@ Route::get('/', 'BlogController@index');
 
 Route::get('/posts/{post}', 'PostController@show')->name('posts.show');
 
+Route::get('/categories/{category}/posts', 'CategoryPostController@index')->name('categories.posts.index');
+
 Route::middleware('auth')->group(function () {
 
     Route::post('/posts/{post}/comments', 'CommentController@store')->name('posts.comments.store');

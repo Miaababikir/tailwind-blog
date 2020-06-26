@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Post;
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class CategoryPostController extends Controller
 {
-    public function index()
+    public function index(Category $category)
     {
-        $posts = Post::latest()->get();
+        $posts = $category->posts;
+
         return inertia()->render('index', [
             'posts' => $posts,
             'categories' => Category::all(),
