@@ -1,7 +1,7 @@
 <template>
     <div class="container mx-auto md:w-2/3">
         <div class="bg-white border overflow-hidden rounded">
-            <img class="w-full h-96 object-cover" :src="post.image" alt="Article" v-if="post.image">
+            <img class="w-full object-cover" :src="post.image" alt="Article" v-if="post.image">
 
             <div class="p-6">
                 <div>

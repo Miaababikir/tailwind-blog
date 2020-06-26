@@ -9,6 +9,7 @@
                :value="value"
                :name="name"
                @input="$emit('input', $event.target.value)"
+               @change="$emit('change', $event)"
                :placeholder="placeholder"
                :required="required"
         >

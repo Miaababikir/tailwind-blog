@@ -5,14 +5,19 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Post extends Model
+class Post extends Model implements HasMedia
 {
+
+    use InteractsWithMedia;
+
     protected $guarded = [];
 
     protected $with = ['category', 'tags', 'publisher', 'comments'];
 
-    protected $appends = ['description'];
+    protected $appends = ['description', 'image'];
 
     public function publisher()
     {
@@ -38,6 +43,12 @@ class Post extends Model
     {
         return Carbon::make($created_at)->diffForHumans();
     }
+
+    public function getImageAttribute()
+    {
+        return $this->getFirstMediaUrl('images');
+    }
+
 
     public function getDescriptionAttribute()
     {

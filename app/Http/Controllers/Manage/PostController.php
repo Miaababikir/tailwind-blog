@@ -34,12 +34,19 @@ class PostController extends Controller
             'category_id' => 'required|exists:categories,id',
             'tags' => 'sometimes',
             'tags.*' => 'required_with:tags|exists:tags,id',
+            'image' => 'sometimes|image|mimetypes:image/jpeg,image/png,image/jpg'
         ]);
 
         $post = auth()->user()->createPost($data);
 
         if ($request->filled('tags')) {
             $post->tags()->attach($data['tags']);
+        }
+
+        if ($request->hasFile('image')) {
+            $post
+                ->addMedia($request->image)
+                ->toMediaCollection('images');
         }
 
         session()->flash('toast', [
@@ -67,12 +74,20 @@ class PostController extends Controller
             'category_id' => 'required|exists:categories,id',
             'tags' => 'sometimes',
             'tags.*' => 'required_with:tags|exists:tags,id',
+            'image' => 'sometimes|image|mimetypes:image/jpeg,image/png,image/jpg'
         ]);
 
         $post->update($request->only(['title', 'body', 'category_id']));
 
         if ($request->filled('tags')) {
             $post->tags()->sync($data['tags']);
+        }
+
+        if ($request->hasFile('image')) {
+            $post
+                ->clearMediaCollection('images')
+                ->addMedia($request->image)
+                ->toMediaCollection('images');
         }
 
         session()->flash('toast', [

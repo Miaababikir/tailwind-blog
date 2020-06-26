@@ -9,8 +9,8 @@
 
         <base-panel class="mt-5">
 
-            <form @submit.prevent="submit">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-4 items-center">
+            <form @submit.prevent="submit" enctype="multipart/form-data">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4 items-center">
                     <div>
                         <base-input label="title" name="title" v-model="form.title" :error="$page.errors.title" required/>
                     </div>
@@ -33,7 +33,10 @@
                         </base-select>
                         <span class="text-red-500 text-xs mt-4" v-if="$page.errors.tags">{{ $page.errors.tags[0] }}</span>
                     </div>
-                    <div class="col-span-3">
+                    <div>
+                        <base-input label="Image" name="image" @change="selectFile" type="file" :error="$page.errors.image" />
+                    </div>
+                    <div class="col-span-2">
                         <span class="text-gray-700">Content</span>
                         <text-editor v-model="form.body" :error="$page.errors.body"></text-editor>
                     </div>
@@ -62,12 +65,25 @@
                     category_id: '',
                     tags: [],
                     body: '',
+                    image: null
                 }
             }
         },
         methods: {
             submit() {
-                this.$inertia.post(this.$route('manage.posts.store'), this.form);
+                const data = new FormData();
+                data.append('title', this.form.title);
+                data.append('category_id', this.form.category_id);
+                data.append('tags', this.form.tags);
+                data.append('body', this.form.body);
+                if (this.form.image) {
+                    data.append('image', this.form.image)
+                }
+
+                this.$inertia.post(this.$route('manage.posts.store'), data);
+            },
+            selectFile(event) {
+                this.form.image = event.target.files[0];
             }
         }
     }

@@ -2,7 +2,8 @@
     <div class="container mx-auto">
         <div class="flex flex-col md:flex-row md:justify-between items-center">
             <h2 class="text-2xl font-semibold">Edit Post</h2>
-            <inertia-link :href="route('manage.posts.index')" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-medium rounded">
+            <inertia-link :href="route('manage.posts.index')"
+                          class="px-4 py-2 bg-indigo-500 hover:bg-indigo-600 text-white font-medium rounded">
                 All Posts
             </inertia-link>
         </div>
@@ -10,16 +11,18 @@
         <base-panel class="mt-5">
 
             <form @submit.prevent="submit">
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-4 items-center">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4 items-center">
                     <div>
-                        <base-input label="title" name="title" v-model="form.title" :error="$page.errors.title" required/>
+                        <base-input label="title" name="title" v-model="form.title" :error="$page.errors.title"
+                                    required/>
                     </div>
                     <div>
                         <span class="text-gray-700">Category</span>
                         <base-select label="name" :options="categories" :reduce="category => category.id"
                                      v-model="form.category_id">
                             <template #search="{attributes, events}">
-                                <input class="vs__search" v-bind="attributes" v-on="events" :required="!form.category_id"/>
+                                <input class="vs__search" v-bind="attributes" v-on="events"
+                                       :required="!form.category_id"/>
                             </template>
                         </base-select>
                         <span class="text-red-500 text-xs mt-4" v-if="$page.errors.category_id">{{ $page.errors.category_id[0] }}</span>
@@ -31,9 +34,14 @@
                                 <input class="vs__search" v-bind="attributes" v-on="events"/>
                             </template>
                         </base-select>
-                        <span class="text-red-500 text-xs mt-4" v-if="$page.errors.tags">{{ $page.errors.tags[0] }}</span>
+                        <span class="text-red-500 text-xs mt-4"
+                              v-if="$page.errors.tags">{{ $page.errors.tags[0] }}</span>
                     </div>
-                    <div class="col-span-3">
+                    <div>
+                        <base-input label="Image" name="image" @change="selectFile" type="file"
+                                    :error="$page.errors.image"/>
+                    </div>
+                    <div class="col-span-2">
                         <span class="text-gray-700">Content</span>
                         <text-editor v-model="form.body" :error="$page.errors.body"></text-editor>
                     </div>
@@ -62,6 +70,7 @@
                     category_id: '',
                     tags: [],
                     body: '',
+                    image: null
                 }
             }
         },
@@ -75,7 +84,20 @@
         },
         methods: {
             submit() {
-                this.$inertia.put(this.$route('manage.posts.update', this.post.id), this.form);
+                const data = new FormData();
+                data.append('title', this.form.title);
+                data.append('category_id', this.form.category_id);
+                data.append('tags', this.form.tags);
+                data.append('body', this.form.body);
+                data.append('_method', 'PUT');
+                if (this.form.image) {
+                    data.append('image', this.form.image)
+                }
+
+                this.$inertia.post(this.$route('manage.posts.update', this.post.id), data);
+            },
+            selectFile(event) {
+                this.form.image = event.target.files[0];
             }
         }
     }
