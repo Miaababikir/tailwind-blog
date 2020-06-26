@@ -13,7 +13,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = auth()->user()->posts;
+        $posts = auth()->user()->posts()->latest()->get();
+
         return inertia()->render('manage/posts/index', [
             'posts' => $posts
         ]);
