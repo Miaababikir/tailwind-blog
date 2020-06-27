@@ -6202,6 +6202,7 @@ var render = function() {
                     attrs: {
                       placeholder: "Add comment",
                       rows: "4",
+                      error: _vm.$page.errors.body,
                       required: ""
                     },
                     model: {

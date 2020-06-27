@@ -18,7 +18,7 @@
             <h2 class="text-2xl font-semibold">Comments</h2>
             <div v-if="$page.auth.user">
                 <form @submit.prevent="submit">
-                    <base-textarea placeholder="Add comment" rows="4" v-model="form.body" required />
+                    <base-textarea placeholder="Add comment" rows="4" v-model="form.body" :error="$page.errors.body" required />
                     <div class="flex justify-end">
                         <base-button class="mt-3 justify-end" primary>Submit</base-button>
                     </div>
