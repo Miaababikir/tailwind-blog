@@ -11,6 +11,7 @@ class BlogController extends Controller
     public function index()
     {
         $posts = Post::latest()->get();
+
         return inertia()->render('index', [
             'posts' => $posts,
             'categories' => Category::all(),

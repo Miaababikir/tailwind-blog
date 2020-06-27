@@ -34,10 +34,12 @@ class PostController extends Controller
 
         $post = auth()->user()->createPost($data);
 
+        // Attaching tag to post if there is any tags on the request
         if ($request->filled('tags')) {
             $post->tags()->attach($data['tags']);
         }
 
+        // Uploading and adding image to post if it was on the request
         if ($request->hasFile('image')) {
             $post->addMedia($request->image)->toMediaCollection('images');
         }
@@ -65,10 +67,12 @@ class PostController extends Controller
 
         $post->update($request->only(['title', 'body', 'category_id']));
 
+        // Syncing post tags with request tags
         if ($request->filled('tags')) {
-            $post->tags()->sync($data['tags']);
+            $post->tags()->sync(json_decode($data['tags']));
         }
 
+        // Clearing old post image and uploading the new one
         if ($request->hasFile('image')) {
             $post
                 ->clearMediaCollection('images')

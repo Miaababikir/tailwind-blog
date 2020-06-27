@@ -87,7 +87,7 @@
                 const data = new FormData();
                 data.append('title', this.form.title);
                 data.append('category_id', this.form.category_id);
-                data.append('tags', this.form.tags);
+                data.append('tags', JSON.stringify(this.form.tags));
                 data.append('body', this.form.body);
                 data.append('_method', 'PUT');
                 if (this.form.image) {
