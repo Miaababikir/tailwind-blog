@@ -36,7 +36,7 @@ class PostController extends Controller
 
         // Attaching tag to post if there is any tags on the request
         if ($request->filled('tags')) {
-            $post->tags()->attach($data['tags']);
+            $post->tags()->attach(json_decode($data['tags']));
         }
 
         // Uploading and adding image to post if it was on the request

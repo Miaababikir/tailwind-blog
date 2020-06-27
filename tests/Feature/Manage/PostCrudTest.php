@@ -42,7 +42,7 @@ class PostCrudTest extends TestCase
             'title' => 'Post title',
             'body' => 'Post body',
             'category_id' => $category->id,
-            'tags' => $tags->pluck('id')
+            'tags' => json_encode($tags->pluck('id'))
         ]);
 
         $this->assertDatabaseHas('posts', [
