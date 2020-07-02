@@ -17,11 +17,11 @@
         "laravel/tinker": "^2.0",
         "spatie/laravel-medialibrary": "^8.0.0",
         "tightenco/ziggy": "^0.9.4",
+        "fzaninotto/faker": "^1.9.1",
         "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
-        "fzaninotto/faker": "^1.9.1",
         "miaababikir/laravel-tailwind-dashboard-preset": "dev-master",
         "mockery/mockery": "^1.3.1",
         "nunomaduro/collision": "^4.1",
